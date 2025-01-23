@@ -15,7 +15,7 @@ function Sidebar() {
         <Link
           to="/"
           className={`flex items-center border-b pb-2 text-lg font-serif ${
-            isActive('/') ? 'text-white border-r-8 border-r-blue-950' : 'text-black'
+            isActive('/') ? 'text-black border-r-8 border-r-blue-950' : 'text-white'
           }`}
         >
           <img src="/Assets/Images/home.png" alt="Home" className="w-6 h-6 mr-8" />
@@ -26,7 +26,7 @@ function Sidebar() {
         <Link
           to="/course-management"
           className={`flex items-center text-lg font-serif ${
-            isActive('/course-management') ? 'text-white border-r-4 border-blue-500' : 'text-white'
+            isActive('/course-management') ? 'text-black border-r-4 border-blue-500' : 'text-white'
           }`}
         >
           <img src="/Assets/Images/course.png" alt="Course Management" className="w-6 h-6 mr-8" />
@@ -37,7 +37,7 @@ function Sidebar() {
         <Link
           to="/scheduling"
           className={`flex items-center text-lg font-serif ${
-            isActive('/scheduling') ? 'text-white border-r-4 border-blue-500' : 'text-white'
+            isActive('/scheduling') ? 'text-black border-r-4 border-blue-500' : 'text-white'
           }`}
         >
           <img src="/Assets/Images/course.png" alt="Schedule" className="w-6 h-6 mr-8" />
@@ -48,7 +48,7 @@ function Sidebar() {
         <Link
           to="/progress"
           className={`flex items-center text-lg font-serif ${
-            isActive('/progress') ? 'text-white border-r-4 border-blue-500' : 'text-white'
+            isActive('/progress') ? 'text-black border-r-4 border-blue-500' : 'text-white'
           }`}
         >
           <img src="/Assets/Images/chart.png" alt="Progress" className="w-6 h-6 mr-8" />
@@ -59,7 +59,7 @@ function Sidebar() {
         <Link
           to="/help"
           className={`flex items-center text-lg font-serif ${
-            isActive('/help') ? 'text-white border-r-4 border-blue-500' : 'text-white'
+            isActive('/help') ? 'text-black border-r-4 border-blue-500' : 'text-white'
           }`}
         >
           <img src="/Assets/Images/help.png" alt="Help" className="w-6 h-6 mr-8" />
@@ -70,7 +70,7 @@ function Sidebar() {
         <Link
           to="/sign-out"
           className={`flex items-center text-lg font-serif ${
-            isActive('/sign-out') ? 'text-white border-r-4 border-blue-500' : 'text-white'
+            isActive('/sign-out') ? 'text-black border-r-4 border-blue-500' : 'text-white'
           }`}
         >
           <img src="/Assets/Images/sign-out.png" alt="Sign Out" className="w-6 h-6 mr-8" />
