@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       colors: {
         'custom-yellow': '#A38901',
+        'custom-pink': '#F8F4E2',
       },
     },
   },
