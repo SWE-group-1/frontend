@@ -17,8 +17,9 @@ const Login = () => {
 
     return (
     <div className="flex items-center justify-center min-h-screen bg-white">
-        <div className=' w-1/2'>
-            <img className='w-full' src={logo} />
+        <div className='flex-col pl-8 items-center justify-center h-fit w-1/2'>
+            <img className='ml-14 w-3/4 h-96' src={logo} />
+            <h1 className='text-8xl text-center w-3/4 ml-14 flex items-center justify-center text-blue-900 font-bold font-serif'>Personalized Study Planner</h1>
         </div>
         <div className='flex w-1/2 min-h-screen items-center justify-center bg-custom-yellow'>
             <div className='w-full items-center justify-center flex-col p-24'>
