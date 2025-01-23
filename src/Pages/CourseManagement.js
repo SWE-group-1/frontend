@@ -2,9 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 import Navbar from '../Components/Navbar';
 import Sidebar from '../Components/Sidebar';
+import { useNavigate } from "react-router-dom";
 
 function CourseManagementPage() {
   
+    const navigate = useNavigate();
     
   const courses = [
     { name: 'Introduction to Computer Architecture', progress: '1/7' },
@@ -37,10 +39,12 @@ function CourseManagementPage() {
     </div>
 
     <div className="flex justify-end mt-14 mb-2">
-        <button className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+        <button className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+                onClick={() => navigate("/add-course")}>
           Add <span className="pl-1">+</span>
         </button>
-        <button className="bg-custom-yellow hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded">
+        <button className="bg-custom-yellow hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded"
+                onClick={() => navigate("/edit-course")}>
           Edit <span className="pl-1">✎</span>
         </button>
       </div>

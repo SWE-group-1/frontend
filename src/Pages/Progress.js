@@ -38,7 +38,7 @@ function Progress() {
         </div>
         <div className="flex m-8 mt-4 w-1/3 justify-center items-center">
         <span className="text-gray-600 text-center mr-2 mt-1">Progress</span>
-        <div className="flex-1 bg-gray-200 rounded-full h-2">
+        <div className="flex-1 bg-gray-200 rounded-full h-4">
         <div
             className="bg-custom-yellow rounded-l-full h-4"
             style={{ width: `${progress}%` }} 
