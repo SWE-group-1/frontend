@@ -1,20 +1,32 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function CourseList() {
-  const [courses, setCourses] = useState([
-    { name: 'Software Engineering', unit: 'U1-U7' },
-    { name: 'Software Engineering', unit: 'U1-U7' },
-    { name: 'Software Engineering', unit: 'U1-U7' },
-    { name: 'Software Engineering', unit: 'U1-U7' },
-    { name: 'Software Engineering', unit: 'U1-U7' },
-    { name: 'Software Engineering', unit: 'U1-U7' },
-  ]);
+  // const [courses, setCourses] = useState([""]);
+  const [courses, setCourses] = useState([]);
+  const navigate = useNavigate();
 
-  const handleAddCourse = () => {
-    // Add a new course (you'll need to implement the logic to get the new course data)
-    const newCourse = { name: '', unit: '' }; // Replace with actual data
-    setCourses([...courses, newCourse]);
-  };
+
+
+  React.useEffect(() => {
+    let isMounted = true; // flag to track component mounting status
+
+    const fetchCourses = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/courses'); // Replace with your API endpoint
+        if (isMounted) {
+          console.log(response.data.course)
+          setCourses(response.data.course)
+        }
+      } catch (error) {
+        if (isMounted) {
+          console.error('Error fetching courses:', error);
+        }
+      }
+    };
+    fetchCourses()
+  }, [])
 
   const handleEditCourse = (index) => {
     // Handle editing the course at the given index
@@ -27,18 +39,14 @@ function CourseList() {
       <div className="flex justify-between mb-4">
         <h2 className="text-lg font-semibold">Current Courses</h2>
         <div className="flex space-x-2">
-          <button
-            className="bg-blue-950 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg"
-            onClick={handleAddCourse}
-          >
+          <button className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+            onClick={() => navigate("/add-course")}>
             Add <span className="pl-1">+</span>
           </button>
-          <button
-            className="bg-custom-yellow hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-lg"
-          >
+          <button className="bg-custom-yellow hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded"
+            onClick={() => navigate("/edit-course")}>
             Edit <span className="pl-1">✎</span>
-          </button>
-        </div>
+          </button>        </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
@@ -49,7 +57,8 @@ function CourseList() {
             onClick={() => handleEditCourse(index)}
           >
             <p>{course.name}</p>
-            <p>{course.unit}</p>
+            <p>{course.credit_hour}</p>
+            <p>{course.weight}</p>
           </div>
         ))}
       </div>

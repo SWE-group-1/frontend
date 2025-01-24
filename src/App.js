@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/edit-course" element={<EditCourse />} />
         <Route path="/scheduling" element={<Scheduling />} />
         <Route path="/add-deadline" element={<AddDeadline />} />
-        <Route path="/edit-course-page" element={<EditCoursePage />} />
+        <Route path="/edit-course-page/:courseId" element={<EditCoursePage />} />
         <Route path="/course-management" element={<CourseManagement />} />
       </Routes>
     </Router>

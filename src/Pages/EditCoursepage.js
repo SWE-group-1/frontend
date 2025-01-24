@@ -2,20 +2,34 @@ import React, { useState } from 'react';
 import Navbar from '../Components/Navbar';
 import Sidebar from '../Components/Sidebar';
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
+import axios from 'axios';
 function EditCoursePage() {
 
     const [courseTitle, setCourseTitle] = useState('');
     const [units, setUnits] = useState('');
-    
-    const navigate = useNavigate();
+    const { courseId } = useParams();
 
+    const navigate = useNavigate();
     const handleSubmit = (event) => {
+        event.preventDefault();
+        const putCourses = async () => {
+            try {
+                const response = await axios.put(`http://localhost:8000/course/${courseId}`, {
+                    "name": courseTitle,
+                })
+                console.log(response)
+            } catch (error) {
+                console.error('Error fetching courses:', error);
+            }
+        };
+        putCourses()
         event.preventDefault();
         // Handle form submission logic here
         console.log({
-          courseTitle,
-          units,
+            courseTitle,
+            units,
         });
         // Clear form fields after submission
         setCourseTitle('');
